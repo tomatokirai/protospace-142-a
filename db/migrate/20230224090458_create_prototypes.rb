@@ -4,7 +4,7 @@ class CreatePrototypes < ActiveRecord::Migration[6.0]
       t.string      :title
       t.text        :catch_copy
       t.text        :concept
-      t.references  :user_id
+      t.references  :user
       t.timestamps
     end
   end
