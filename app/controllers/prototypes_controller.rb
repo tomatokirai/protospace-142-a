@@ -19,7 +19,7 @@ class PrototypesController < ApplicationController
       render new_prototype_path
     end
   end
-  
+
   def edit
     @prototype = Prototype.find(params[:id])
     if user_signed_in? && @prototype.user_id != current_user.id
@@ -42,6 +42,7 @@ class PrototypesController < ApplicationController
   end
 
   private
+
   def prototype_params
     params.require(:prototype).permit(:title, :catch_copy, :concept, :image).merge(user_id: current_user.id)
   end
