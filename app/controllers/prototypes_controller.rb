@@ -20,6 +20,21 @@ class PrototypesController < ApplicationController
     end
   end
   
+  def edit
+    @prototype = Prototype.find(params[:id])
+    if user_signed_in? && @prototype.user_id != current_user.id
+      render action: :index
+    end
+  end
+
+  def update
+    @prototype = Prototype.find(params[:id])
+    if @prototype.update(prototype_params)
+      redirect_to action: :show
+    else
+      render action: :edit
+    end
+  end
 
   private
   def prototype_params
