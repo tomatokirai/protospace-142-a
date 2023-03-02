@@ -18,7 +18,7 @@ class PrototypesController < ApplicationController
     if @prototype.save
       redirect_to action: :index
     else
-      redirect_to new_prototype_path
+      render new_prototype_path
     end
   end
 
